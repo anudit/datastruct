@@ -9,7 +9,7 @@ public class question2 {
 		
 		ArrayList<Employee> EmployeeDB = new ArrayList<Employee>();
 		 
-		for (int i = 1; i<=30 ; i++) {
+		for (int i = 100; i<=130 ; i++) {
 			String diff = Integer.toString(i);
 
 			Employee obj = new Employee(diff, i, "CSE", 10000, "add"+diff, 971738467, diff + "@mail.com", "pos" + diff);

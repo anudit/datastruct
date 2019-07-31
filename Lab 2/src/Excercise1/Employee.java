@@ -10,6 +10,30 @@ public class Employee {
 	int Contact;
 	String Email;
 	String Position;
+	
+	int columnSize = 15;
+	
+	public String getFixed(String st) {
+		
+		String fix = "";
+		int spCnt = (columnSize - st.length())/2;
+		for (int i=0; i<=spCnt; i++) {
+			fix+=" ";
+		}
+		fix += st;
+		for (int i=0; i<=spCnt-1; i++) {
+			fix+=" ";
+		}
+		fix+="|";
+		return fix;
+		
+	}
+	public String getFixed(int num) {
+
+		String st = Integer.toString(num);
+		return getFixed(st);
+		
+	}
 
 	public Employee(
 			String _name, 
@@ -32,23 +56,35 @@ public class Employee {
 		this.Position = _pos;
 	}
 	
+	
 	public String header() {
-		return "Name     Id     Department     Salary     Address    Contact     Email     Position\n";
-	}
+		
+		String temp = " ";
+		temp += getFixed("Name");
+		temp += getFixed("Id");
+		temp += getFixed("Department");
+		temp += getFixed("Salary");
+		temp += getFixed("Address");
+		temp += getFixed("Contact");
+		temp += getFixed("Email");
+		temp += getFixed("Position");
+
+		return temp;
+    }
 	
 	@Override
     public String toString() {
 		
-		String temp = "  ";
-		temp += this.Name + "      ";
-		temp += this.Id + "         ";
-		temp += this.Department + "         ";
-		temp += this.Salary + "       ";
-		temp += this.Address +"    ";
-		temp += this.Contact + "   ";
-		temp += this.Email + "    ";
-		temp += this.Position;
-		
+		String temp = "";
+		temp += getFixed(this.Name);
+		temp += getFixed(this.Id);
+		temp += getFixed(this.Department);
+		temp += getFixed(this.Salary);
+		temp += getFixed(this.Address);
+		temp += getFixed(this.Contact);
+		temp += getFixed(this.Email);
+		temp += getFixed(this.Position);
+
 		return temp;
     }
 	
