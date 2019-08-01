@@ -16,20 +16,23 @@ public class question4i {
 			EmployeeDB.add(obj);
 		}
 		
-		EmployeeDB.get(1).delete();
-
-		for (int i = 0; i<30 ; i++) {
-			System.out.println(EmployeeDB.get(i).toString());
+		System.out.println(EmployeeDB.get(0).header());
+		for (int i = 1; i<=30 ; i++) {
+			System.out.println(EmployeeDB.get(i-1).toString());
 		}
 		
-		
+		System.out.println("\n");
+
 		String diff = Integer.toString(1);
-		Employee obj = new Employee(diff, 29, "CSE", 10000, "add"+diff, 971738467, diff + "@mail.com", "pos" + diff);
+		Employee obj = new Employee(diff, 29, "CSE", 10000, "add"+diff, 971738467, "new@mail.com", "pos" + diff);
 		EmployeeDB.set(1, obj);
 		
-		for (int i = 0; i<30 ; i++) {
-			System.out.println(EmployeeDB.get(i).toString());
+		System.out.println(EmployeeDB.get(0).header());
+		for (int i = 1; i<=30 ; i++) {
+			System.out.println(EmployeeDB.get(i-1).toString());
 		}
+		
+		System.out.println("\n");
 		
 	}
 }

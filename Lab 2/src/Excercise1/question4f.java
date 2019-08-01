@@ -16,8 +16,13 @@ public class question4f {
 			EmployeeDB.add(obj);
 		}
 		
-		System.out.println(EmployeeDB.get(2).toString());
-		System.out.println(EmployeeDB.get(3).toString());
+		System.out.println(EmployeeDB.get(0).header());
+		for (int i = 1; i<=30 ; i++) {
+			System.out.println(EmployeeDB.get(i-1).toString());
+		}
+		
+		System.out.println("\n");
+		
 		EmployeeDB.get(2).delete();
 		int shifted = 0;
 		for (int i = 2; i<29 ; i++) {
@@ -25,9 +30,11 @@ public class question4f {
 			Employee obj = EmployeeDB.get(i+1);
 			EmployeeDB.set(i, obj);
 		}
-		System.out.println(EmployeeDB.get(2).toString());
-		System.out.println(EmployeeDB.get(3).toString());
-		
+
+		System.out.println(EmployeeDB.get(5).header());
+		for (int i = 1; i<=30 ; i++) {
+			System.out.println(EmployeeDB.get(i-1).toString());
+		}
 		System.out.println(shifted);
 		
 	}

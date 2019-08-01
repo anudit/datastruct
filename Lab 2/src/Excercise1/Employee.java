@@ -11,9 +11,13 @@ public class Employee {
 	String Email;
 	String Position;
 	
-	int columnSize = 15;
+	int columnSize = 16;
 	
 	public String getFixed(String st) {
+		
+		if(st == null) {
+			st = "null";
+		}
 		
 		String fix = "";
 		int spCnt = (columnSize - st.length())/2;
@@ -22,6 +26,10 @@ public class Employee {
 		}
 		fix += st;
 		for (int i=0; i<=spCnt-1; i++) {
+			fix+=" ";
+		}
+		int diff = columnSize - (spCnt*2) - st.length();
+		for (int i=0; i<diff; i++) {
 			fix+=" ";
 		}
 		fix+="|";
@@ -59,7 +67,7 @@ public class Employee {
 	
 	public String header() {
 		
-		String temp = " ";
+		String temp = "";
 		temp += getFixed("Name");
 		temp += getFixed("Id");
 		temp += getFixed("Department");

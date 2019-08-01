@@ -16,8 +16,15 @@ public class question4d {
 			EmployeeDB.add(obj);
 		}
 		
-		System.out.println(EmployeeDB.get(29).toString());
+		System.out.println(EmployeeDB.get(0).header());
+		for (int i = 1; i<=30 ; i++) {
+			System.out.println(EmployeeDB.get(i-1).toString());
+		}
+		System.out.println("\n");
+		
+
 		EmployeeDB.get(29).delete();
+		System.out.println(EmployeeDB.get(0).header());
 		System.out.println(EmployeeDB.get(29).toString());
 		
 	}
