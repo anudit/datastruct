@@ -23,9 +23,9 @@ public class question4i {
 		
 		System.out.println("\n");
 
-		String diff = Integer.toString(1);
+		String diff = Integer.toString(1992);
 		Employee obj = new Employee(diff, 29, "CSE", 10000, "add"+diff, 971738467, "new@mail.com", "pos" + diff);
-		EmployeeDB.set(1, obj);
+		EmployeeDB.set(20, obj);
 		
 		System.out.println(EmployeeDB.get(0).header());
 		for (int i = 1; i<=30 ; i++) {

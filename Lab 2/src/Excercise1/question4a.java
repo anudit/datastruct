@@ -21,11 +21,9 @@ public class question4a {
 			System.out.println(EmployeeDB.get(i-1).toString());
 		}
 		
-		System.out.println("\n");
-		System.out.println(EmployeeDB.get(0).header());
 		for (int i = 1; i<=30 ; i++) {
 			if( EmployeeDB.get(i-1).Id == 103) {
-				System.out.println(EmployeeDB.get(i-1).toString());
+				System.out.println(EmployeeDB.get(i-1).Name);
 			}
 		}
 		

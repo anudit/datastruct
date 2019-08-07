@@ -25,7 +25,10 @@ public class question4d {
 
 		EmployeeDB.get(29).delete();
 		System.out.println(EmployeeDB.get(0).header());
-		System.out.println(EmployeeDB.get(29).toString());
+		for (int i = 1; i<=29 ; i++) {
+			System.out.println(EmployeeDB.get(i-1).toString());
+		}
+		System.out.println("\n");
 		
 	}
 }

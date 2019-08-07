@@ -97,13 +97,13 @@ public class Employee {
     }
 	
 	public void delete() {
-		this.Name = null;
-		this.Id = 00000;
-		this.Department = null;
+		this.Name = "";
+		this.Id = 0;
+		this.Department = "";
 		this.Salary = 0;
-		this.Address = null;
-		this.Contact = 00000000000;
-		this.Email = null;
-		this.Position = null;
+		this.Address = "";
+		this.Contact = 0;
+		this.Email = "";
+		this.Position = "";
     }
 }

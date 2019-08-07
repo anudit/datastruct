@@ -14,6 +14,7 @@ public class question4h {
 
 			Employee obj = new Employee(diff, i, "CSE", 10000, "add"+diff, 971738467, diff + "@mail.com", "pos" + diff);
 			EmployeeDB.add(obj);
+			
 		}
 		
 		System.out.println(EmployeeDB.get(0).header());
