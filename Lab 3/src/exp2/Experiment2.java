@@ -22,6 +22,8 @@ public class Experiment2 {
 						{ 11, 16, 25, 38 },
 						{ 45, 49, 52, 57},
 						{ 51, 54, 59, 66}};
+		int find = 54;
+		boolean found = false;
 		
 		print2d(arr2d);
 		
@@ -30,23 +32,22 @@ public class Experiment2 {
 		
 		for (int i = 0; i < arr2d.length; i++) { 
             for (int j = 0; j < arr2d[i].length; j++) { 
+            	if (arr2d[i][j] == find)
+            		found = true;
             	arr1d[arr1dLength] = arr2d[i][j];
             	arr1dLength+=1;
             } 
         }
-		
-		print1d(arr1d);
-		System.out.println();
 		
         QuickSort qs = new QuickSort(); 
         qs.sort(arr1d, 0, arr1dLength-1);
         
         for (int i = 0; i < arr2d.length; i++)
             for (int j = 0; j < arr2d[i].length; j++)
-            	arr2d[i][j] = arr1d[(j*arr2d.length) + i]; 
+            	arr2d[i][j] = arr1d[(i*arr2d.length) + j]; 
         
         print2d(arr2d);
-        
+        System.out.println(find + ":" +found);
 
 	}
 	
