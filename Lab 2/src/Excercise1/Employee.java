@@ -12,6 +12,7 @@ public class Employee {
 	String Position;
 	
 	int columnSize = 16;
+	String sep = "|";
 	
 	public String getFixed(String st) {
 		
@@ -32,7 +33,7 @@ public class Employee {
 		for (int i=0; i<diff; i++) {
 			fix+=" ";
 		}
-		fix+="|";
+		fix+=sep;
 		return fix;
 		
 	}
@@ -67,7 +68,7 @@ public class Employee {
 	
 	public String header() {
 		
-		String temp = "";
+		String temp = sep;
 		temp += getFixed("Name");
 		temp += getFixed("Id");
 		temp += getFixed("Department");
@@ -83,7 +84,7 @@ public class Employee {
 	@Override
     public String toString() {
 		
-		String temp = "";
+		String temp = sep;
 		temp += getFixed(this.Name);
 		temp += getFixed(this.Id);
 		temp += getFixed(this.Department);

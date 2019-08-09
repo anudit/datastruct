@@ -1,0 +1,53 @@
+package exp2;
+
+import exp2.QuickSort;
+
+public class Experiment2 {
+	
+	public static void print1d(int[] arr) {
+		for (int t = 0; t < arr.length; t++)
+        	System.out.print(arr[t] + " ");
+		System.out.println();
+	}
+	
+	public static void print2d(int[][] arr) {
+		for (int i = 0; i < arr.length; i++)
+			print1d(arr[i]);
+		System.out.println();
+	}
+	
+	public static void main(String[] args) {
+		
+		int[][] arr2d = { { 1, 5, 13, 29 }, 
+						{ 11, 16, 25, 38 },
+						{ 45, 49, 52, 57},
+						{ 51, 54, 59, 66}};
+		
+		print2d(arr2d);
+		
+		int arr1d[]=new int[arr2d.length*arr2d[0].length];
+		int arr1dLength = 0;
+		
+		for (int i = 0; i < arr2d.length; i++) { 
+            for (int j = 0; j < arr2d[i].length; j++) { 
+            	arr1d[arr1dLength] = arr2d[i][j];
+            	arr1dLength+=1;
+            } 
+        }
+		
+		print1d(arr1d);
+		System.out.println();
+		
+        QuickSort qs = new QuickSort(); 
+        qs.sort(arr1d, 0, arr1dLength-1);
+        
+        for (int i = 0; i < arr2d.length; i++)
+            for (int j = 0; j < arr2d[i].length; j++)
+            	arr2d[i][j] = arr1d[(j*arr2d.length) + i]; 
+        
+        print2d(arr2d);
+        
+
+	}
+	
+}
