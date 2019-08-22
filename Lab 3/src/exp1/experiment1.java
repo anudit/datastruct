@@ -15,6 +15,13 @@ public class experiment1 {
 		System.out.println("3. Delete a player from scorecard.");
 		System.out.println("4. Quit");
 		
+		Batsmen b1 = new Batsmen("an1", 1, 2, 3, 2, 1);
+		Batsmen b2 = new Batsmen("an2", 3, 6, 3, 2, 1);
+		Batsmen b3 = new Batsmen("an3", 2, 1, 1, 2, 10);
+		Scoreboard.add(b1);
+		Scoreboard.add(b2);
+		Scoreboard.add(b3);
+		
 		int ch = 0;
 		while(ch != 4) {
 			
@@ -36,28 +43,24 @@ public class experiment1 {
 				 * @dev Add Batsmen
 				 */
 				
-//				System.out.print("Enter Name : ");
-//				String _name = sc2.nextLine();
-//				System.out.print("Enter Ones : ");
-//				int _ones = sc.nextInt();
-//				System.out.print("Enter Twos : ");
-//				int _twos = sc.nextInt();
-//				System.out.print("Enter Threes : ");
-//				int _threes = sc.nextInt();
-//				System.out.print("Enter Fours : ");
-//				int _fours = sc.nextInt();
-//				System.out.print("Enter Sixes : ");
-//				int _sixes = sc.nextInt();
-//				
-//				Batsmen batter = new Batsmen(_name, _ones, _twos, _threes, _fours, _sixes);
-//				Scoreboard.add(batter);
 				
-				Batsmen b1 = new Batsmen("an1", 1, 2, 3, 2, 1);
-				Batsmen b2 = new Batsmen("an2", 3, 6, 3, 2, 1);
-				Batsmen b3 = new Batsmen("an3", 2, 1, 1, 2, 10);
-				Scoreboard.add(b1);
-				Scoreboard.add(b2);
-				Scoreboard.add(b3);
+				
+				
+				System.out.print("Enter Name : ");
+				String _name = sc2.nextLine();
+				System.out.print("Enter Ones : ");
+				int _ones = sc.nextInt();
+				System.out.print("Enter Twos : ");
+				int _twos = sc.nextInt();
+				System.out.print("Enter Threes : ");
+				int _threes = sc.nextInt();
+				System.out.print("Enter Fours : ");
+				int _fours = sc.nextInt();
+				System.out.print("Enter Sixes : ");
+				int _sixes = sc.nextInt();
+				
+				Batsmen batter = new Batsmen(_name, _ones, _twos, _threes, _fours, _sixes);
+				Scoreboard.add(batter);
 				
 				System.out.println("Batsmen Recorded");
 				
@@ -101,7 +104,7 @@ public class experiment1 {
 				System.out.println("\n");
 				System.out.println(Batsmen.heading("SCOREBOARD"));
 				System.out.println(Batsmen.header());
-				for (int i = 0; i < SortedBoard.size(); i++) {
+				for (int i = 0; i < 3; i++) {
 					System.out.println(SortedBoard.get(i));
 				}
 				

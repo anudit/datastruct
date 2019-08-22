@@ -1,15 +1,14 @@
 package lab4;
 
-import java.util.ArrayList;
-
+import lab4.Passengers;
 public class Flights {
 	Flight head;
 	
 	static class Flight { 
 
 	     String fno; 
-	     Flight next; 
-	     ArrayList<String> passengers = new ArrayList<String>();
+	     Flight next;
+	     Passengers passengers = new Passengers();
 	     
 	     // Constructor 
 	     Flight(String d) 
@@ -19,10 +18,15 @@ public class Flights {
 	     }
 	     
 	     public void addPassenger(String pname) {
-	    	 passengers.add(pname);
+	    	 
+	    	 passengers = passengers.addPassenger(passengers, pname);
 	     }
 	     public void removePassenger(String pname) {
-	    	 passengers.remove(pname);
+	    	 
+	    	 passengers = passengers.deletePassenger(passengers, pname);
+	     }
+	     public Passengers getPassengers() {
+	    	 return passengers;
 	     }
 	 }
 	
@@ -52,7 +56,8 @@ public class Flights {
 	     System.out.print("LinkedList: "); 
 
 	     while (currNode != null) { 
-	         System.out.print(currNode.fno + " "); 
+	         System.out.print(currNode.fno + " ");
+	         
 	         currNode = currNode.next; 
 	     } 
 	 } 

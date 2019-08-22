@@ -1,5 +1,4 @@
 package lab4;
-import java.util.Arrays;
 import java.util.Scanner;
 
 import lab4.Flights;
@@ -8,7 +7,7 @@ public class q1 {
 	
 	public static void main(String[] args) { 
 		
-		Flights airline = new Flights();
+		Flights airline z= new Flights();
 		
 		Scanner sc = new Scanner(System.in);
 		Scanner sc2 = new Scanner(System.in);
@@ -109,7 +108,8 @@ public class q1 {
 				String _fno = sc2.nextLine();
 				
 				if(airline.isFlight(airline, _fno) == true) {
-					System.out.println(Arrays.toString(airline.getFlight(airline, _fno).passengers.toArray()));
+					Passengers ps = airline.getFlight(airline, _fno).getPassengers();
+					ps.print(ps);
 				}
 				else {
 					System.out.println("Invalid Flight Number");
@@ -126,7 +126,7 @@ public class q1 {
 				String _fno = sc2.nextLine();
 				
 				if(airline.isFlight(airline, _fno) == true) {
-					System.out.println(airline.getFlight(airline, _fno).passengers.toArray().length);
+					System.out.println(airline.getFlight(airline, _fno).getPassengers().total);
 				}
 				else {
 					System.out.println("Invalid Flight Number");
