@@ -7,7 +7,7 @@ public class q1 {
 	
 	public static void main(String[] args) { 
 		
-		Flights airline z= new Flights();
+		Flights airline= new Flights();
 		
 		Scanner sc = new Scanner(System.in);
 		Scanner sc2 = new Scanner(System.in);
