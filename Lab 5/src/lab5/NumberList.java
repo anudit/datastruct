@@ -1,8 +1,12 @@
 package lab5;
 
+import java.util.Scanner;
+
 public class NumberList {
-	Number head;
+	
+	public Number head;
 	static int total = 0;
+
 	static class Number { 
 
         public int num; 
@@ -18,34 +22,46 @@ public class NumberList {
         }
 
 	}
-	
 
-	
-    public static NumberList addNumber(NumberList list, int _num) { 
+    public void init() { 
+        
+    	Scanner sc = new Scanner(System.in);
+		
+		int inpCnt = 0;
+		System.out.print("Enter the Number of Nodes : ");
+		inpCnt = sc.nextInt();
+		
+		while (inpCnt != 0) {
+			System.out.print("Enter Number : ");
+			int _num = sc.nextInt();
+			this.addNumber(_num);
+			inpCnt--;
+		}
+		
+    } 
+
+    public void addNumber(int _num) { 
         
         total++;
         Number new_node = new Number(_num); 
         new_node.next = null; 
 
-        if (list.head == null) { 
-            list.head = new_node; 
+        if (this.head == null) { 
+        	this.head = new_node; 
         }
         else { 
 
-            Number last = list.head; 
+            Number last = this.head; 
             while (last.next != null) { 
                 last = last.next; 
             } 
 
             last.next = new_node; 
-        } 
-
-        return list; 
+        }
     } 
 
-	 public static void print(NumberList listA) { 
-		 Number currNode = listA.head; 
-
+	public void print() { 
+		 Number currNode = this.head; 
 	     System.out.print("Number List : "); 
 
 	     while (currNode != null) { 
@@ -53,9 +69,9 @@ public class NumberList {
 	         currNode = currNode.next; 
 	     } 
 	 } 
-	 
-	 public static void print(NumberList listA, int _skip) { 
-		 Number currNode = listA.head; 
+
+	public void print(int _skip) { 
+		 Number currNode = this.head; 
 		 int skip = _skip;
 	     System.out.print("Number List : "); 
 
@@ -68,12 +84,12 @@ public class NumberList {
 	    		 skip = _skip;
 	    	 }  
 	    	 currNode = currNode.next;
-	     } 
+	     }
 	 } 
 
-    public static NumberList deleteNumber(NumberList list, int _name) { 
+    public void deleteNumber(int _name) { 
         total--;
-        Number currNode = list.head; 
+        Number currNode = this.head; 
 
         while (currNode != null) { 
             if(currNode.num == _name) {
@@ -83,43 +99,25 @@ public class NumberList {
             else {
                 currNode = currNode.next;
             }
-        } 
-        
-        return list; 
+        }
     } 
-	 
-	 public static boolean isNumber(NumberList list, int _name) { 
-		 Number currNode = list.head; 
+
+	public boolean isNumber(int _num) { 
+		 Number currNode = this.head; 
 
 	     while (currNode != null) { 
-	    	 if(currNode.num == _name) {
+	    	 if(currNode.num == _num) {
 	        	 return true;
 	         }
 	         else {
 	        	 currNode = currNode.next;
 	         }
 	     }
-	     
 	     return false; 
 	 }
-	 
-    public static Number getNumberByNumber(NumberList list, int _name) { 
-        Number currNode = list.head; 
 
-        while (currNode != null) { 
-        	if(currNode.num == _name) {
-                return currNode;
-            }
-            else {
-                currNode = currNode.next;
-            }
-        }
-        
-        return new Number(0); 
-    }
-    
-    public static int getNumberByIndex(NumberList list, int _index, boolean _reverse) { 
-        Number currNode = list.head; 
+    public int getNumberByIndex(int _index, boolean _reverse) { 
+        Number currNode = this.head; 
         
         if(_reverse = true) {
         	_index = total - _index;
@@ -137,38 +135,84 @@ public class NumberList {
         
         return -1; 
     }
-    
-    public static int getNumberByIndex(NumberList list, int _index) {
-    	return getNumberByIndex(list, _index, false);
+
+    public int getNumberByIndex(int _index) {
+    	return getNumberByIndex(_index, false);
     }
-    
-    public static NumberList unique(NumberList list) { 
-        Number currNode = list.head; 
+
+    public void unique() { 
+    	
+        Number currNode = this.head; 
         NumberList uniqueList = new NumberList();
         while (currNode != null) { 
-        	if(uniqueList.isNumber(uniqueList, currNode.num) == false) {
-        		uniqueList.addNumber(uniqueList, currNode.num);
+        	if(uniqueList.isNumber(currNode.num) == false) {
+        		uniqueList.addNumber(currNode.num);
         	}
         	currNode = currNode.next;
         }
-        
-        return uniqueList; 
+        this.head = uniqueList.head;
     }
-    
-	public NumberList join(NumberList l1, NumberList l2){
-		l1.total += l2.total;
 
-        if (l1.head == null) { 
-        	l1.head = l2.head;
+    public void swap(int x, int y) { 
+    	
+        if (x == y) return; 
+  
+        Number befX = null, curX = this.head;
+        
+        while (curX != null && curX.num != x) {
+            befX = curX; 
+            curX = curX.next; 
+        } 
+
+        Number befY = null, curY = this.head; 
+        while (curY != null && curY.num != y) { 
+            befY = curY; 
+            curY = curY.next; 
+        }
+        
+        if (curX == null || curY == null) return; 
+ 
+        if (befX != null) 
+            befX.next = curY; 
+        else
+            head = curY; 
+
+        if (befY != null) 
+            befY.next = curX; 
+        else
+            head = curX; 
+
+        Number temp = curX.next; 
+        curX.next = curY.next; 
+        curY.next = temp; 
+    }
+
+	public void join(NumberList l2){
+		this.total += l2.total;
+
+        if (this.head == null) { 
+        	this.head = l2.head;
         }
         else {
-        	Number last = l1.head; 
+        	Number last = this.head; 
             while (last.next != null) { 
                 last = last.next; 
             }
             last.next = l2.head; 
         } 
-		return l1;
 	}
 
+    public void reverse() { 
+    	Number prev = null; 
+    	Number current = this.head; 
+    	Number next = null; 
+        while (current != null) { 
+            next = current.next; 
+            current.next = prev; 
+            prev = current; 
+            current = next; 
+        } 
+        this.head = prev;
+    }    
+    
 } 
