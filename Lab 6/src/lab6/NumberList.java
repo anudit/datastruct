@@ -255,7 +255,7 @@ public class NumberList {
 	     } 
 
     	 return joined;
-    } 
+    }  
     
     public boolean isSameAs(NumberList l) {
     	
@@ -282,11 +282,23 @@ public class NumberList {
     	
 	     while (currNode.next != null) {
 	    	 
-	         if (currNode.next.num > currNode.num )
-	        	 if(currNode == this.head)
-	        		 this.head = currNode.next;
-	        	 else
-	        		 prevNode.next = currNode.next;
+	    	 Number currNode1 = currNode.next; 
+		     while (currNode1 != null) {
+		         
+		         if (currNode1.num > currNode.num) {
+		        	 
+		        	 if (prevNode == null) {
+		        		 this.head = this.head.next;
+		        	 }
+		        	 else {
+//		        		 System.out.println("Delete" + currNode.num);
+			        	 prevNode.next = currNode.next;
+		        	 }
+		        	 
+		         }
+		        	 
+		         currNode1 = currNode1.next; 
+		     }
 	        		 
 	        prevNode = currNode;
 	        currNode = currNode.next; 

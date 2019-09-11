@@ -13,7 +13,7 @@ public class q1 {
 		NumberList numbers= new NumberList();
 		Scanner sc = new Scanner(System.in);
 		
-		numbers.init();
+		numbers.init();  
 		
 		System.out.println("Original List");
 		numbers.print();
