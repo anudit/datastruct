@@ -22,7 +22,6 @@ public class q1 {
 			
 			_fcnt--;
 		}
-		
 
 		System.out.println("1. Book reservations");
 		System.out.println("2. Cancel reservations");
