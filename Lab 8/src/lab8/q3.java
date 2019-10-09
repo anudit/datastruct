@@ -85,18 +85,14 @@ class q3 {
 	public static void main(String args[])  {  
 	  
 	    Node poly1 = null, poly2 = null, poly3 = null;  
-	  
-	    // Creation of 1st Polynomial: 3x^2 + 5x^1 + 6  
-	    poly1 = addnode(poly1, 3, 2);  
-	    poly1 = addnode(poly1, 5, 1);  
 	    poly1 = addnode(poly1, 6, 0);  
+	    poly1 = addnode(poly1, 5, 1);  
+	    poly1 = addnode(poly1, 3, 2);  
 	  
-	    // Creation of 2nd polynomial: 6x^1 + 8  
-	    poly2 = addnode(poly2, 6, 1);  
 	    poly2 = addnode(poly2, 8, 0);  
+	    poly2 = addnode(poly2, 6, 3);  
 	  
 	    printList(poly1);  
-	
 	    printList(poly2);  
 	 
 	    poly3 = multiply(poly1, poly2, poly3);  
