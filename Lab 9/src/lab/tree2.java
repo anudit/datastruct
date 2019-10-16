@@ -1,8 +1,7 @@
 package lab;
 
-class BinarySearchTree { 
-	  
-    class Node { 
+public class tree2 {
+	class Node { 
         int key; 
         Node left, right; 
   
@@ -14,7 +13,7 @@ class BinarySearchTree {
   
     Node root; 
   
-    BinarySearchTree() {  
+    tree2() {  
         root = null;  
     } 
     
@@ -35,22 +34,10 @@ class BinarySearchTree {
             root.right = insertEle(root.right, key); 
   
         return root; 
-    } 
-  
-    void inorder()  { 
-       inorderRec(root); 
-    } 
-  
-    void inorderRec(Node root) { 
-        if (root != null) { 
-            inorderRec(root.left); 
-            System.out.println(root.key); 
-            inorderRec(root.right); 
-        } 
-    } 
+    }  
     
     void delete(int key) { 
-        root = deleteRec(root, key); 
+        root = deleteRec(root, key);  
     } 
 
     Node deleteRec(Node root, int key) { 
@@ -84,6 +71,55 @@ class BinarySearchTree {
         } 
         return minv; 
     }
-
+    
+    void inorder()  { 
+       inorderRec(root); 
+    } 
+  
+    void inorderRec(Node root) { 
+        if (root != null) { 
+            inorderRec(root.left); 
+            System.out.println(root.key); 
+            inorderRec(root.right); 
+        } 
+    }
+    
+    public static void postorder(Node root) { 
+        if (root == null) 
+            return; 
+ 
+        postorder(root.left);
+        postorder(root.right); 
+  
+        System.out.print(root.key + "\n"); 
+    } 
+    
+    public static  void preorder(Node root) { 
+        if (root == null) 
+            return; 
+  
+        System.out.print(root.key + "\n"); 
+        preorder(root.left);
+        preorder(root.right); 
+    } 
+    
+    public void largest() {
+    	System.out.println(root.key);
+    }
+    
+    public int s = 0;
+    
+    void sum()  { 
+        sumRec(root);
+        System.out.println(s);
+     } 
+   
+     void sumRec(Node root) { 
+         if (root != null) { 
+        	 sumRec(root.left); 
+             s+=root.key;
+             sumRec(root.right); 
+         } 
+     }
     
 }
